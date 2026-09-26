@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NearNow — Open places, on tap for AI assistants</title>
+<meta name="description" content="NearNow is an MCP connector that lets AI assistants like Muse and Grok find nearby public places — pharmacies, supermarkets, gas stations, EV chargers, libraries, post offices — with honest opening-hours data from OpenStreetMap.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root { --blue:#1E5FEB; --ink:#17233b; --muted:#5b6b8c; --line:#e3e9f5; --bg:#f7f9fd; }
+  * { box-sizing:border-box; margin:0; }
+  body { font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:#fff; }
+  .wrap { max-width:880px; margin:0 auto; padding:0 24px; }
+  header { background:var(--bg); border-bottom:1px solid var(--line); }
+  header .wrap { padding:40px 24px; }
+  .logo { display:flex; align-items:center; gap:12px; }
+  .logo img { width:44px; height:44px; }
+  .logo h1 { font-size:24px; letter-spacing:-.02em; }
+  .tagline { margin-top:14px; font-size:20px; font-weight:600; }
+  .sub { margin-top:8px; color:var(--muted); max-width:640px; }
+  h2 { font-size:20px; margin:40px 0 12px; letter-spacing:-.01em; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:12px; }
+  .card { border:1px solid var(--line); border-radius:12px; padding:14px 16px; background:var(--bg); }
+  .card b { display:block; }
+  .card span { color:var(--muted); font-size:14px; }
+  .badges { display:flex; flex-direction:column; gap:10px; margin-top:6px; }
+  .badge { display:flex; gap:10px; align-items:baseline; }
+  .dot { flex:0 0 auto; width:12px; height:12px; border-radius:50%; margin-top:5px; }
+  .g { background:#12a150; } .y { background:#e8a70e; } .w { background:#c3cede; }
+  pre { background:#0f1b33; color:#d7e3ff; border-radius:12px; padding:16px 18px; overflow:auto; font-size:13px; line-height:1.5; margin-top:12px; }
+  footer { border-top:1px solid var(--line); margin-top:48px; }
+  footer .wrap { padding:22px 24px; color:var(--muted); font-size:14px; display:flex; flex-wrap:wrap; gap:8px 20px; }
+  a { color:var(--blue); }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="logo"><img src="/favicon.svg" alt="NearNow logo"><h1>NearNow</h1></div>
+    <p class="tagline">Open places, on tap for AI assistants.</p>
+    <p class="sub">NearNow is an MCP connector that lets AI assistants — Meta's <b>Muse</b>, xAI's <b>Grok</b>, and any MCP-compatible agent — answer “where is the nearest open pharmacy / supermarket / EV charger?” with real, attributed data.</p>
+  </div>
+</header>
+<main class="wrap">
+
+  <h2>What assistants can ask</h2>
+  <div class="grid">
+    <div class="card"><b>💊 Pharmacies</b><span>drugstores and 24-hour options</span></div>
+    <div class="card"><b>🛒 Supermarkets</b><span>grocery stores with hours</span></div>
+    <div class="card"><b>⛽ Gas stations</b><span>fuel, mostly 24/7 in the US</span></div>
+    <div class="card"><b>🔌 EV charging</b><span>charging points and operators</span></div>
+    <div class="card"><b>📚 Libraries</b><span>public library branches</span></div>
+    <div class="card"><b>📮 Post offices</b><span>postal service locations</span></div>
+  </div>
+
+  <h2>Honest opening hours — never guessed</h2>
+  <p>Every result carries a confidence label, so an assistant can tell its user exactly how sure it is.</p>
+  <div class="badges">
+    <div class="badge"><span class="dot g"></span><span><b>confirmed</b> — hours come from the place's OpenStreetMap record.</span></div>
+    <div class="badge"><span class="dot y"></span><span><b>estimated</b> — chain-standard or category-typical hours (e.g. “Costco: Mon–Fri 10:00–20:30”).</span></div>
+    <div class="badge"><span class="dot w"></span><span><b>unknown</b> — no data. NearNow says so instead of inventing an answer, and never reports a place as “open now” without basis.</span></div>
+  </div>
+
+  <h2>Built for assistants, not browsers</h2>
+  <p>NearNow speaks the Model Context Protocol (MCP). Connectors point their agent at our endpoint and get three tools:</p>
+  <pre>search_places      → "pharmacies near Pasadena, CA open now"
+get_place_details  → hours, address, phone, exact location
+list_categories    → what this connector can answer</pre>
+
+  <h2>Own a place? You're already in.</h2>
+  <p>Venue data comes from <a href="https://www.openstreetmap.org" rel="noopener">OpenStreetMap</a>, the free, community-built map.
+  If your business is missing or its hours are wrong, you can fix it yourself in minutes at
+  <a href="https://www.openstreetmap.org/edit" rel="noopener">openstreetmap.org/edit</a> — and every AI assistant using NearNow (and much of the open web) sees the correction. No listing fees, ever.</p>
+
+</main>
+<footer>
+  <div class="wrap">
+    <span>© 2026 NearNow</span>
+    <span>Data © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a> (ODbL)</span>
+    <span><a href="/privacy">Privacy</a></span>
+    <span><a href="/terms">Terms</a></span>
+    <span>applecore2002@gmail.com</span>
+  </div>
+</footer>
+</body>
+</html>

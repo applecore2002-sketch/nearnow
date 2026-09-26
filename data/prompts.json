@@ -1,0 +1,88 @@
+[
+  {
+    "id": "EP-01",
+    "frozen": true,
+    "prompt": "Find pharmacies near Pasadena, CA 91101.",
+    "tool": "search_places",
+    "args": { "area": "Pasadena, CA", "category": "pharmacy", "limit": 5 },
+    "expect": { "status": "OK", "min_results": 3 }
+  },
+  {
+    "id": "EP-02",
+    "frozen": true,
+    "prompt": "Which supermarkets are near downtown Los Angeles? Show their opening hours.",
+    "tool": "search_places",
+    "args": { "area": "Los Angeles, CA", "category": "supermarket", "radius_m": 5000, "limit": 5 },
+    "expect": { "status": "OK", "min_results": 1, "has_hours_text": true }
+  },
+  {
+    "id": "EP-03",
+    "frozen": true,
+    "prompt": "Find EV charging stations near San Gabriel, CA.",
+    "tool": "search_places",
+    "args": { "area": "San Gabriel, CA", "category": "ev_charging", "radius_m": 5000, "limit": 5 },
+    "expect": { "status": "OK", "min_results": 1 }
+  },
+  {
+    "id": "EP-04",
+    "frozen": true,
+    "prompt": "I need a gas station near Alhambra, CA that is open now.",
+    "tool": "search_places",
+    "args": { "area": "Alhambra, CA", "category": "fuel", "open_now": true, "limit": 5 },
+    "expect": { "status": "OK", "min_results": 1, "open_now_strict": true }
+  },
+  {
+    "id": "EP-05",
+    "frozen": true,
+    "prompt": "Which public libraries are near Arcadia, CA?",
+    "tool": "search_places",
+    "args": { "area": "Arcadia, CA", "category": "library", "limit": 5 },
+    "expect": { "status": "OK", "min_results": 1 }
+  },
+  {
+    "id": "EP-06",
+    "frozen": true,
+    "prompt": "Find the nearest post office to Alhambra, CA 91801.",
+    "tool": "search_places",
+    "args": { "area": "Alhambra, CA", "category": "post_office", "limit": 5 },
+    "expect": { "status": "OK", "min_results": 1 }
+  },
+  {
+    "id": "EP-07",
+    "frozen": true,
+    "prompt": "Is there a 24-hour pharmacy near Pasadena, CA? If you can't confirm any are open right now, say so instead of guessing.",
+    "tool": "search_places",
+    "args": { "area": "Pasadena, CA", "category": "pharmacy", "open_now": true, "limit": 5 },
+    "expect": { "status": "OK", "open_now_strict": true }
+  },
+  {
+    "id": "EP-08",
+    "prompt": "Find dentists near Pasadena, CA.",
+    "tool": "search_places",
+    "args": { "area": "Pasadena, CA", "category": "dentist" },
+    "expect": { "isError": true, "status": "INVALID_INPUT", "valid_categories": true }
+  },
+  {
+    "id": "EP-09",
+    "prompt": "Find pharmacies in Xyzzyville, ZZ.",
+    "tool": "search_places",
+    "args": { "area": "Xyzzyville, ZZ", "category": "pharmacy" },
+    "expect": { "isError": false, "status": "UNKNOWN_AREA" }
+  },
+  {
+    "id": "EP-09R",
+    "frozen": true,
+    "prompt": "Find EV charging stations in Alturas, CA. If none are in the data, say so plainly instead of guessing.",
+    "tool": "search_places",
+    "args": { "area": "Alturas, CA", "category": "ev_charging", "limit": 5 },
+    "expect": {},
+    "note": "Frozen fallback (W0-09, COO approved 2026-09-26). Real remote CA town; empty result OR UNKNOWN_AREA are both graceful outcomes, so expect is intentionally empty: regression asserts nothing here (either outcome passes), warmup skips it (no expect.status). Empty-result semantics verified in W0-10. Original EP-09 (Xyzzyville) stays as the UNKNOWN_AREA regression case."
+  },
+  {
+    "id": "EP-10",
+    "prompt": "Show me full details for the first pharmacy you found.",
+    "tool": "get_place_details",
+    "args": { "place_id": "$FIRST" },
+    "expect": { "status": "OK", "osm_url": true }
+  }
+]

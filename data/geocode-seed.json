@@ -1,0 +1,37 @@
+{
+ "pasadena, ca": {
+  "lat": 34.1476507,
+  "lon": -118.144155,
+  "label": "Pasadena, Los Angeles County, California"
+ },
+ "los angeles, ca": {
+  "lat": 34.0536909,
+  "lon": -118.242766,
+  "label": "Los Angeles, Los Angeles County, California"
+ },
+ "san gabriel, ca": {
+  "lat": 34.0990995,
+  "lon": -118.1085554,
+  "label": "San Gabriel, Los Angeles County, California"
+ },
+ "alhambra, ca": {
+  "lat": 34.093042,
+  "lon": -118.12706,
+  "label": "Alhambra, Los Angeles County, California"
+ },
+ "arcadia, ca": {
+  "lat": 34.1362075,
+  "lon": -118.0401497,
+  "label": "Arcadia, Los Angeles County, California"
+ },
+ "alturas, ca": {
+  "lat": 41.4873018,
+  "lon": -120.5424675,
+  "label": "Alturas, Modoc County, California"
+ },
+ "monterey, ca": {
+  "lat": 36.2231079,
+  "lon": -121.387742,
+  "label": "Monterey, Monterey County, California"
+ }
+}

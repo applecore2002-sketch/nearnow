@@ -1,0 +1,32 @@
+{
+  "name": "nearnow",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "NearNow - MCP connector for finding public places from OpenStreetMap data",
+  "scripts": {
+    "build": "tsc",
+    "build:edgeone": "node scripts/build-edgeone.mjs",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "serve": "tsx src/index.ts",
+    "smoke": "tsx scripts/smoke.ts",
+    "regression": "node scripts/regression.mjs",
+    "e2e": "node scripts/e2e.mjs",
+    "warmup": "node scripts/warmup.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "opening_hours": "^3.8.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "wrangler": "^4.141.0"
+  }
+}

@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.cache/
+.mimosa/
+*.log
+.env
+edgeone-dist/
+
+.edgeone/
+__pycache__/
+*.pyc
+data/snapshot/
+.github/workflows/
+
+# deploy build artifacts (W0-17)
+.wrangler/
+dist-cloudflare/
